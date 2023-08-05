@@ -1,6 +1,6 @@
 {
   "name": "tradestation-tax-calculator",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Libreria per calcolare le tasse da pagare per i conti Tradestation",
   "private": "false",
   "main": "./dist/index.js",
