@@ -1,5 +1,11 @@
 # @marchitos/tradestation-tax-calculator
 
+## 0.0.2
+
+### Patch Changes
+
+- cacd368: removed scoped package
+
 ## 0.0.3
 
 ### Patch Changes
