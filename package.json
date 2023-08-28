@@ -3,25 +3,27 @@
   "version": "0.0.2",
   "description": "Libreria per calcolare le tasse da pagare per i conti Tradestation",
   "private": false,
-  "main": "./dist/index.js",
-  "module": "./dist/index.esm.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/bin.js",
+  "bin": {
+    "ttc": "./dist/bin.js"
+  },
   "scripts": {
-    "dev": "vitest",
-    "test": "vitest run",
-    "build": "tsup src/index.ts --format cjs,esm --dts",
-    "lint": "tsc",
-    "ci": "pnpm run lint && pnpm run test && pnpm run build",
-    "release": "pnpm run lint && pnpm run test && pnpm run build && changeset publish"
+    "build": "esbuild --bundle src/bin.ts --platform=node --outfile=dist/bin.js --packages=external",
+    "ci": "pnpm run build",
+    "release": "pnpm run ci && changeset publish"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
+  "dependencies": {
+    "chokidar": "^3.5.3",
+    "commander": "^10.0.1",
+    "fast-glob": "^3.2.12"
+  },
   "devDependencies": {
-    "@changesets/cli": "^2.26.2",
-    "@types/node": "^20.4.7",
-    "tsup": "^7.2.0",
-    "typescript": "^5.1.6",
-    "vitest": "^0.34.1"
+    "@changesets/cli": "^2.26.1",
+    "@types/node": "^20.1.2",
+    "esbuild": "^0.17.18",
+    "typescript": "^5.0.4"
   }
 }
